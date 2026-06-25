@@ -1,0 +1,81 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Y42
+providerId: y42
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- DataOps
+- Data Pipelines
+- Orchestration
+- dbt
+- Plans
+description: >-
+  Y42 uses a sales-led, contact-us pricing model rather than transparent
+  self-service published rates. The platform is positioned for data teams and
+  enterprises running production data pipelines on Snowflake and BigQuery, and
+  pricing is quoted based on usage, environment, and support needs. Public,
+  per-tier dollar figures are not published, so the plan entries below are not
+  reconciled and capture the documented engagement model only.
+notes: >-
+  Confirm current plans, tiers, and pricing directly with Y42 sales; no
+  self-service price list is published on y42.com as of the created date.
+sources:
+- https://www.y42.com
+- https://www.y42.com/pricing
+- https://docs.y42.com
+plans:
+- id: y42-trial
+  name: Free Trial
+  type: trial
+  description: >-
+    Y42 offers a free trial / get-started path to evaluate the platform before
+    a commercial engagement. Specific limits are not publicly published.
+  entries:
+  - label: Trial Access
+    name: trial
+    type: trial
+    metric: time
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free trial - see Y42
+    userMultiplied: false
+  elements:
+  - name: Managed Ingestion (Airbyte)
+  - name: Managed dbt Core
+  - name: Orchestration
+  - name: Managed Git Backend
+- id: y42-commercial
+  name: Commercial (Contact Sales)
+  type: enterprise
+  description: >-
+    Sales-led commercial engagement covering production DataOps on Snowflake or
+    BigQuery, with usage-, environment-, and support-based pricing negotiated
+    with Y42. Includes the full platform - ingestion, modeling, orchestration,
+    governance, and the public API.
+  entries:
+  - label: Commercial Agreement
+    name: commercial
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Managed Ingestion (Airbyte)
+  - name: Managed dbt Core
+  - name: DAG Orchestration
+  - name: Managed Git Backend
+  - name: Data Catalog and Governance
+  - name: Public API, CLI, and Webhooks
+  - name: Support and SLAs
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

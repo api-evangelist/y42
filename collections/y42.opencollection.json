@@ -1,0 +1,327 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Y42 Public API",
+    "version": "4"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Spaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List spaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/1/github-backend/:org_slug/",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              }
+            ]
+          },
+          "docs": "Returns a list of all accessible spaces in an organization."
+        },
+        {
+          "info": {
+            "name": "Create a space",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.y42.dev/api/1/github-backend/:org_slug/space",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new space (environment) within the organization."
+        },
+        {
+          "info": {
+            "name": "Retrieve a space",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/1/github-backend/:org_slug/space/:slug",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ]
+          },
+          "docs": "Retrieves details for a single space by slug."
+        },
+        {
+          "info": {
+            "name": "Delete a space",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.y42.dev/api/1/github-backend/:org_slug/space/:slug",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ]
+          },
+          "docs": "Removes a space by slug."
+        },
+        {
+          "info": {
+            "name": "Update space credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.y42.dev/api/1/github-backend/:org_slug/space/:slug/credentials",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the data-warehouse credentials/connection associated with a space."
+        },
+        {
+          "info": {
+            "name": "Create a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.y42.dev/api/1/credential/:org_slug/:space_slug/connections",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an integration/source connection credential for a space."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Orchestration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Trigger an orchestration run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.y42.dev/api/4/orchestrations/:org_slug/:space_slug",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers an orchestration run for a space, by command or by asset."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Runs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an orchestration run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/4/orchestrations/:org_slug/:space_slug/run",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ]
+          },
+          "docs": "Retrieves information about a single orchestration run by id or conditions."
+        },
+        {
+          "info": {
+            "name": "List orchestration runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/4/orchestrations/:org_slug/:space_slug/runs",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of orchestration runs for a space, filterable by conditions."
+        },
+        {
+          "info": {
+            "name": "Get latest jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/1/job-info-service/:org_slug/:space_slug/latest-jobs",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ]
+          },
+          "docs": "Returns the latest job information for a space."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Manifest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get dbt manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/1/dbt/:org_slug/:space_slug/manifest",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ]
+          },
+          "docs": "Retrieves the dbt manifest content for a space, exposing assets, models, sources, and lineage."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

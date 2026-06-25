@@ -1,0 +1,234 @@
+{
+  "info": {
+    "name": "Y42 Public API",
+    "description": "The Y42 public REST API for managing spaces, triggering orchestration runs, retrieving run and job information, and reading the dbt manifest. Base URL https://api.y42.dev. Authentication is via an API key (created in Y42 organization settings) sent as a Bearer token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.y42.dev"
+    }
+  ],
+  "item": [
+    {
+      "name": "Spaces",
+      "item": [
+        {
+          "name": "List spaces",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/1/github-backend/:org_slug/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "1", "github-backend", ":org_slug", ""],
+              "variable": [
+                { "key": "org_slug", "value": "", "description": "The slug of the organization (company)." }
+              ]
+            },
+            "description": "Returns a list of all accessible spaces in an organization."
+          }
+        },
+        {
+          "name": "Create a space",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/api/1/github-backend/:org_slug/space",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "1", "github-backend", ":org_slug", "space"],
+              "variable": [
+                { "key": "org_slug", "value": "", "description": "The slug of the organization (company)." }
+              ]
+            },
+            "description": "Creates a new space (environment) within the organization."
+          }
+        },
+        {
+          "name": "Retrieve a space",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/1/github-backend/:org_slug/space/:slug",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "1", "github-backend", ":org_slug", "space", ":slug"],
+              "variable": [
+                { "key": "org_slug", "value": "", "description": "The slug of the organization (company)." },
+                { "key": "slug", "value": "", "description": "The slug of the space." }
+              ]
+            },
+            "description": "Retrieves details for a single space by slug."
+          }
+        },
+        {
+          "name": "Delete a space",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/1/github-backend/:org_slug/space/:slug",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "1", "github-backend", ":org_slug", "space", ":slug"],
+              "variable": [
+                { "key": "org_slug", "value": "", "description": "The slug of the organization (company)." },
+                { "key": "slug", "value": "", "description": "The slug of the space." }
+              ]
+            },
+            "description": "Removes a space by slug."
+          }
+        },
+        {
+          "name": "Update space credentials",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/api/1/github-backend/:org_slug/space/:slug/credentials",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "1", "github-backend", ":org_slug", "space", ":slug", "credentials"],
+              "variable": [
+                { "key": "org_slug", "value": "", "description": "The slug of the organization (company)." },
+                { "key": "slug", "value": "", "description": "The slug of the space." }
+              ]
+            },
+            "description": "Updates the data-warehouse credentials/connection associated with a space."
+          }
+        },
+        {
+          "name": "Create a connection",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/api/1/credential/:org_slug/:space_slug/connections",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "1", "credential", ":org_slug", ":space_slug", "connections"],
+              "variable": [
+                { "key": "org_slug", "value": "", "description": "The slug of the organization (company)." },
+                { "key": "space_slug", "value": "", "description": "The slug of the space." }
+              ]
+            },
+            "description": "Creates an integration/source connection credential for a space."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orchestration",
+      "item": [
+        {
+          "name": "Trigger an orchestration run",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/api/4/orchestrations/:org_slug/:space_slug",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "4", "orchestrations", ":org_slug", ":space_slug"],
+              "variable": [
+                { "key": "org_slug", "value": "", "description": "The slug of the organization (company)." },
+                { "key": "space_slug", "value": "", "description": "The slug of the space." }
+              ]
+            },
+            "description": "Triggers an orchestration run for a space, by command or by asset."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Runs",
+      "item": [
+        {
+          "name": "Get an orchestration run",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/4/orchestrations/:org_slug/:space_slug/run",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "4", "orchestrations", ":org_slug", ":space_slug", "run"],
+              "variable": [
+                { "key": "org_slug", "value": "", "description": "The slug of the organization (company)." },
+                { "key": "space_slug", "value": "", "description": "The slug of the space." }
+              ]
+            },
+            "description": "Retrieves information about a single orchestration run by id or conditions."
+          }
+        },
+        {
+          "name": "List orchestration runs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/4/orchestrations/:org_slug/:space_slug/runs",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "4", "orchestrations", ":org_slug", ":space_slug", "runs"],
+              "variable": [
+                { "key": "org_slug", "value": "", "description": "The slug of the organization (company)." },
+                { "key": "space_slug", "value": "", "description": "The slug of the space." }
+              ]
+            },
+            "description": "Retrieves a list of orchestration runs for a space, filterable by conditions."
+          }
+        },
+        {
+          "name": "Get latest jobs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/1/job-info-service/:org_slug/:space_slug/latest-jobs",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "1", "job-info-service", ":org_slug", ":space_slug", "latest-jobs"],
+              "variable": [
+                { "key": "org_slug", "value": "", "description": "The slug of the organization (company)." },
+                { "key": "space_slug", "value": "", "description": "The slug of the space." }
+              ]
+            },
+            "description": "Returns the latest job information for a space."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Manifest",
+      "item": [
+        {
+          "name": "Get dbt manifest",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/1/dbt/:org_slug/:space_slug/manifest",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "1", "dbt", ":org_slug", ":space_slug", "manifest"],
+              "variable": [
+                { "key": "org_slug", "value": "", "description": "The slug of the organization (company)." },
+                { "key": "space_slug", "value": "", "description": "The slug of the space." }
+              ]
+            },
+            "description": "Retrieves the dbt manifest content for a space, exposing assets, models, sources, and lineage."
+          }
+        }
+      ]
+    }
+  ]
+}

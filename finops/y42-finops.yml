@@ -1,0 +1,89 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Y42
+providerId: y42
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- DataOps
+- Data Pipelines
+- Orchestration
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Y42 spend. Y42 is sold through a sales-led, contact-us model
+  rather than published usage rates, so its direct platform cost is a negotiated
+  commercial agreement. Because Y42 runs on top of the customer's own Snowflake
+  or BigQuery warehouse, a material portion of total cost of ownership is the
+  underlying warehouse compute and storage driven by Y42 orchestration runs.
+  Specific Y42 platform rates are not published and are not reconciled here.
+notes: >-
+  Y42 platform pricing must be confirmed with Y42 sales. Warehouse compute and
+  storage (Snowflake / BigQuery) costs are billed by those providers, not by
+  Y42, and should be tracked separately. Verify all figures during reconciliation.
+sources:
+- https://www.y42.com
+- https://www.y42.com/pricing
+- https://docs.y42.com
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Y42
+serviceCategory: Analytics
+billingModel:
+  pricingCategory: Commitment-Based
+  billingFrequency: Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+focusColumns:
+  ServiceName: Y42
+  ServiceCategory: Analytics
+  ProviderName: Y42
+  PublisherName: Y42
+  InvoiceIssuerName: Y42
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Commitment-Based
+meters:
+- name: platform_subscription
+  description: Negotiated Y42 commercial agreement (sales-led; not publicly priced).
+  unit: contract
+  aggregation: sum
+  dimensions:
+  - organization
+- name: orchestration_runs
+  description: Orchestration runs executed across spaces, a driver of warehouse compute consumption.
+  unit: runs
+  aggregation: sum
+  dimensions:
+  - organization
+  - space
+- name: warehouse_compute
+  description: >-
+    Snowflake / BigQuery compute driven by Y42 pipeline execution, billed by the
+    warehouse provider rather than by Y42.
+  unit: credits_or_slots
+  aggregation: sum
+  dimensions:
+  - organization
+  - space
+principles:
+- name: Visibility
+  description: Track Y42 orchestration run volume alongside Snowflake / BigQuery usage to attribute warehouse spend to pipelines.
+- name: Allocation
+  description: Map spaces and runs to teams and cost centers; tag warehouse usage by space where the warehouse supports it.
+- name: Optimization
+  description: Schedule runs to minimize unnecessary warehouse compute; consolidate models and incrementalize dbt builds to reduce warehouse cost.
+- name: Accountability
+  description: Assign owners per space; review the negotiated Y42 agreement and downstream warehouse spend on a regular cadence.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

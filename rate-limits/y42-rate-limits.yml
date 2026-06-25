@@ -1,0 +1,52 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Y42
+providerId: y42
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- DataOps
+- Data Pipelines
+- Orchestration
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Y42's public API reference does not publish explicit numeric rate limits,
+  quotas, or throttling thresholds for its REST endpoints. Access is gated by
+  API keys created in the organization settings and scoped by role. Practical
+  limits are governed by the underlying orchestration, the managed data
+  warehouse (Snowflake / BigQuery) concurrency, and the commercial plan. No
+  specific per-endpoint limits are reconciled in this artifact.
+notes: >-
+  Verify any applicable rate limits, concurrency caps, and run quotas with Y42
+  during reconciliation; values are not published in the public API reference.
+sources:
+- https://docs.y42.com/reference/api_overview
+- https://y42-public-api.readme.io/
+limits:
+- name: API Requests
+  scope: api_key
+  metric: requests
+  limit: see provider documentation
+  notes: No published numeric request rate limit; API keys are role-scoped.
+- name: Orchestration Runs
+  scope: space
+  metric: runs
+  limit: see provider documentation
+  notes: Concurrency and run frequency governed by orchestration and plan.
+- name: Warehouse Concurrency
+  scope: space
+  metric: queries
+  limit: see provider documentation
+  notes: Bounded by the underlying Snowflake / BigQuery connection and quotas.
+policies:
+- name: API Key Authorization
+  description: API keys are created in organization settings and carry a role; access is scoped accordingly.
+- name: Backoff Strategy
+  description: Clients should implement retries with exponential backoff and honor any returned rate-limit responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,94 @@
+aid: y42
+name: Y42
+review:
+  question: Does Y42 expose a documented public REST API for developers?
+  answer: true
+  date: '2026-06-21'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Y42 is primarily a UI- and Git-driven managed DataOps platform ("Gitful
+    data ops") that runs production data pipelines on top of Snowflake and
+    BigQuery, combining managed Airbyte ingestion, managed dbt Core, a DAG
+    orchestration scheduler, and a managed Git backend. In addition to the web
+    app and Git workflow, Y42 DOES expose a documented public REST API. Y42
+    describes pipelines as "fully programmable" through API, CLI, and webhooks.
+
+    The public REST API is documented at https://y42-public-api.readme.io/ with
+    an API overview at https://docs.y42.com/reference/api_overview. The base URL
+    is https://api.y42.dev and authentication is via API keys (created in the
+    organization settings inside the Y42 app, role-scoped) passed as a Bearer
+    token. The public API covers managing spaces (environments) and their
+    warehouse credentials, triggering orchestration runs by command or asset,
+    retrieving run and latest-job information, and retrieving the dbt manifest
+    for a space.
+
+    A second, internal-flavored "gateway" API surface is described in the
+    docs.y42.com API overview (e.g. /gateway/companies/{company_id}/...
+    orchestration_runs, jobs, spaces). The cleaner, externally documented public
+    surface is api.y42.dev, which is what this catalog models in the OpenAPI.
+  apiAvailability: documented-public-rest-api
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.y42.dev
+      documented: true
+    - protocol: Webhooks
+      scheme: https
+      documented: partial
+      note: >-
+        Y42 lists webhooks as part of fully programmable pipelines, but specific
+        webhook payloads and registration endpoints are not fully enumerated in
+        the public API reference. Documented as available, not reconciled.
+    - protocol: CLI
+      documented: true
+      note: Y42 offers a CLI alongside the API for programmatic pipeline operations (not an HTTP API surface).
+  authentication:
+    type: api_key_bearer
+    note: API keys created in organization settings, role-scoped, sent as Bearer token in Authorization header.
+  endpointsConfirmedRest:
+    - GET    https://api.y42.dev/api/1/github-backend/{org_slug}/
+    - POST   https://api.y42.dev/api/1/github-backend/{org_slug}/space
+    - GET    https://api.y42.dev/api/1/github-backend/{org_slug}/space/{slug}
+    - DELETE https://api.y42.dev/api/1/github-backend/{org_slug}/space/{slug}
+    - PATCH  https://api.y42.dev/api/1/github-backend/{org_slug}/space/{slug}/credentials
+    - POST   https://api.y42.dev/api/1/credential/{org_slug}/{space_slug}/connections
+    - POST   https://api.y42.dev/api/4/orchestrations/{org_slug}/{space_slug}
+    - GET    https://api.y42.dev/api/4/orchestrations/{org_slug}/{space_slug}/run
+    - GET    https://api.y42.dev/api/4/orchestrations/{org_slug}/{space_slug}/runs
+    - GET    https://api.y42.dev/api/1/job-info-service/{org_slug}/{space_slug}/latest-jobs
+    - GET    https://api.y42.dev/api/1/dbt/{org_slug}/{space_slug}/manifest
+  pricing:
+    model: sales-led
+    reconciled: false
+    note: No transparent self-service price list published; pricing is contact-sales. Y42 runs on the customer's own Snowflake / BigQuery warehouse, which carries separate compute/storage cost.
+  githubOrganization:
+    found: false
+    note: >-
+      No verified public Y42 (data-ops company) GitHub organization was found.
+      github.com/y42 exists but is an unrelated Clojure-library organization, so
+      GitHubOrganization was intentionally omitted from apis.yml to avoid a
+      false reference.
+sources:
+  - url: https://docs.y42.com/reference/api_overview
+    type: Documentation
+    note: API overview; describes API keys and gateway endpoints (orchestration_runs, jobs, spaces).
+  - url: https://y42-public-api.readme.io/
+    type: APIReference
+    note: Public API reference; base URL https://api.y42.dev, Bearer auth, spaces / orchestrations / runs / manifest endpoints.
+  - url: https://www.y42.com/product-updates/public-api
+    type: Documentation
+    note: Announces public API - manifest content, triggering runs by command or asset, retrieving run info; example endpoint https://api.y42.dev/api/4/orchestrations/{org_slug}/{space_slug}.
+  - url: https://docs.y42.com/docs/welcome
+    type: Documentation
+    note: Platform overview - managed dbt Core, DAG orchestration, API and CLI access with webhooks.
+actions:
+  openapiPath: openapi/y42-openapi.yml
+  openapiNote: >-
+    OpenAPI 3.0.1 authored with the documented public REST paths only. Request /
+    response body schemas are not published in the public reference and were
+    omitted rather than fabricated.
+  apisYmlUpdated: true
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
