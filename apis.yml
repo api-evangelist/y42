@@ -113,6 +113,12 @@ apis:
     enumerated in the public API reference and are documented here as available but
     not reconciled.
 common:
+- type: VulnerabilityDisclosure
+  url: security/y42-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/y42-domain-security.yml
+- type: Authentication
+  url: authentication/y42-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/y42
 - type: Website

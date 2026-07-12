@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/y42-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: Y42 API keys are created in the organization settings inside the Y42 app and
+    passed as a Bearer token in the Authorization header.
+  sources:
+  - openapi/y42-openapi.yml
