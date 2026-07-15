@@ -113,6 +113,8 @@ apis:
     enumerated in the public API reference and are documented here as available but
     not reconciled.
 common:
+- type: AgenticAccess
+  url: agentic-access/y42-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/y42-vulnerability-disclosure.yml
 - type: DomainSecurity
