@@ -1,0 +1,77 @@
+openapi: 3.0.1
+info:
+  title: Y42 Public Manifest Runs API
+  description: The Y42 public REST API for the Y42 managed DataOps platform. It lets you programmatically manage spaces (Y42 environments) and their data-warehouse credentials, trigger and retrieve orchestration runs by command or by asset, retrieve the dbt manifest for a space, and read the latest job information. Paths below reflect endpoints documented in the Y42 public API reference (https://y42-public-api.readme.io/). Request and response schemas are not fully published in the public reference and are therefore omitted here rather than fabricated; consult the live reference for body shapes.
+  termsOfService: https://www.y42.com/legal/terms-of-service
+  contact:
+    name: Y42 Support
+    url: https://www.y42.com
+  version: '4'
+servers:
+- url: https://api.y42.dev
+  description: Y42 public API
+security:
+- bearerAuth: []
+tags:
+- name: Runs
+paths:
+  /api/4/orchestrations/{org_slug}/{space_slug}/run:
+    get:
+      operationId: getOrchestrationRun
+      tags:
+      - Runs
+      summary: Get an orchestration run
+      description: Retrieves information about a single orchestration run by id or conditions.
+      parameters:
+      - $ref: '#/components/parameters/OrgSlug'
+      - $ref: '#/components/parameters/SpaceSlug'
+      responses:
+        '200':
+          description: The requested orchestration run.
+  /api/4/orchestrations/{org_slug}/{space_slug}/runs:
+    get:
+      operationId: listOrchestrationRuns
+      tags:
+      - Runs
+      summary: List orchestration runs
+      description: Retrieves a list of orchestration runs for a space, filterable by conditions.
+      parameters:
+      - $ref: '#/components/parameters/OrgSlug'
+      - $ref: '#/components/parameters/SpaceSlug'
+      responses:
+        '200':
+          description: A list of orchestration runs.
+  /api/1/job-info-service/{org_slug}/{space_slug}/latest-jobs:
+    get:
+      operationId: getLatestJobs
+      tags:
+      - Runs
+      summary: Get latest jobs
+      description: Returns the latest job information for a space.
+      parameters:
+      - $ref: '#/components/parameters/OrgSlug'
+      - $ref: '#/components/parameters/SpaceSlug'
+      responses:
+        '200':
+          description: The latest jobs for the space.
+components:
+  parameters:
+    OrgSlug:
+      name: org_slug
+      in: path
+      required: true
+      description: The slug of the organization (company).
+      schema:
+        type: string
+    SpaceSlug:
+      name: space_slug
+      in: path
+      required: true
+      description: The slug of the space (environment).
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Y42 API keys are created in the organization settings inside the Y42 app and passed as a Bearer token in the Authorization header.
