@@ -8,7 +8,20 @@ description: Y42 is a managed DataOps platform ("Gitful data ops") that runs pro
   Git backend. Most workflows are driven through the Y42 web app and Git, but Y42
   also exposes a documented public REST API and webhooks for programmatically managing
   spaces, triggering orchestration runs, and retrieving run and manifest information.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: true
+  try_now: true
+  public: false
+  label: Freemium (free trial) · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/y42.png
 tags:
 - DataOps
 - Data Pipelines
@@ -21,80 +34,6 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: y42:y42-spaces-api
-  name: Y42 Spaces API
-  tags:
-  - Spaces
-  - Environments
-  - Provisioning
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://y42-public-api.readme.io/
-  baseURL: https://api.y42.dev
-  properties:
-  - url: https://docs.y42.com/reference/api_overview
-    type: Documentation
-  - url: https://y42-public-api.readme.io/
-    type: APIReference
-  - url: openapi/y42-openapi.yml
-    type: OpenAPI
-  description: Programmatically list, create, retrieve, and delete spaces (Y42 environments)
-    within an organization, manage credentials, and configure the underlying data
-    warehouse connection (BigQuery, Snowflake, GCS, S3) via the Git backend endpoints.
-- aid: y42:y42-orchestration-api
-  name: Y42 Orchestration API
-  tags:
-  - Orchestration
-  - Pipelines
-  - Scheduling
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://y42-public-api.readme.io/
-  baseURL: https://api.y42.dev
-  properties:
-  - url: https://docs.y42.com/reference/api_overview
-    type: Documentation
-  - url: https://y42-public-api.readme.io/
-    type: APIReference
-  - url: openapi/y42-openapi.yml
-    type: OpenAPI
-  description: Trigger orchestration runs for a space by command or by asset, and retrieve
-    information about runs by id or by conditions, enabling external schedulers and
-    CI/CD systems to drive Y42 data pipelines.
-- aid: y42:y42-runs-api
-  name: Y42 Runs API
-  tags:
-  - Runs
-  - Jobs
-  - Monitoring
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://y42-public-api.readme.io/
-  baseURL: https://api.y42.dev
-  properties:
-  - url: https://docs.y42.com/reference/api_overview
-    type: Documentation
-  - url: https://y42-public-api.readme.io/
-    type: APIReference
-  - url: openapi/y42-openapi.yml
-    type: OpenAPI
-  description: Retrieve orchestration run details and the latest job information for
-    a space, supporting monitoring, alerting, and observability over pipeline executions.
-- aid: y42:y42-manifest-api
-  name: Y42 Manifest API
-  tags:
-  - Manifest
-  - dbt
-  - Assets
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://y42-public-api.readme.io/
-  baseURL: https://api.y42.dev
-  properties:
-  - url: https://docs.y42.com/reference/api_overview
-    type: Documentation
-  - url: https://y42-public-api.readme.io/
-    type: APIReference
-  - url: openapi/y42-openapi.yml
-    type: OpenAPI
-  description: Retrieve the dbt manifest content for a space, exposing the data assets,
-    models, sources, and lineage that make up a Y42 project for downstream tooling.
 - aid: y42:y42-webhooks
   name: Y42 Webhooks
   tags:
@@ -107,11 +46,67 @@ apis:
   properties:
   - url: https://docs.y42.com/reference/api_overview
     type: Documentation
-  description: Y42 documents webhook-based triggers as part of its fully programmable
-    pipelines (alongside the API and CLI), allowing external events to trigger
-    orchestration. Specific webhook payloads and registration endpoints are not fully
-    enumerated in the public API reference and are documented here as available but
-    not reconciled.
+  description: >-
+    Y42 documents webhook-based triggers as part of its fully programmable pipelines (alongside the API
+    and CLI), allowing external events to trigger orchestration. Specific webhook payloads and registration
+    endpoints are not fully enumerated in the public API reference and are documented here as available
+    but not reconciled.
+- aid: y42:y42-manifest-api
+  name: Y42 Manifest API
+  description: The Manifest API from Y42 — 1 operation(s) for manifest.
+  humanURL: https://y42-public-api.readme.io/
+  baseURL: https://api.y42.dev
+  tags:
+  - Manifest
+  properties:
+  - type: OpenAPI
+    url: openapi/y42-manifest-api-openapi.yml
+  - type: Documentation
+    url: https://docs.y42.com/reference/api_overview
+  - type: APIReference
+    url: https://y42-public-api.readme.io/
+- aid: y42:y42-orchestration-api
+  name: Y42 Orchestration API
+  description: The Orchestration API from Y42 — 1 operation(s) for orchestration.
+  humanURL: https://y42-public-api.readme.io/
+  baseURL: https://api.y42.dev
+  tags:
+  - Orchestration
+  properties:
+  - type: OpenAPI
+    url: openapi/y42-orchestration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.y42.com/reference/api_overview
+  - type: APIReference
+    url: https://y42-public-api.readme.io/
+- aid: y42:y42-runs-api
+  name: Y42 Runs API
+  description: The Runs API from Y42 — 3 operation(s) for runs.
+  humanURL: https://y42-public-api.readme.io/
+  baseURL: https://api.y42.dev
+  tags:
+  - Runs
+  properties:
+  - type: OpenAPI
+    url: openapi/y42-runs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.y42.com/reference/api_overview
+  - type: APIReference
+    url: https://y42-public-api.readme.io/
+- aid: y42:y42-spaces-api
+  name: Y42 Spaces API
+  description: The Spaces API from Y42 — 5 operation(s) for spaces.
+  humanURL: https://y42-public-api.readme.io/
+  baseURL: https://api.y42.dev
+  tags:
+  - Spaces
+  properties:
+  - type: OpenAPI
+    url: openapi/y42-spaces-api-openapi.yml
+  - type: Documentation
+    url: https://docs.y42.com/reference/api_overview
+  - type: APIReference
+    url: https://y42-public-api.readme.io/
 common:
 - type: AgenticAccess
   url: agentic-access/y42-agentic-access.yml
