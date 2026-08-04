@@ -1,0 +1,20 @@
+{
+  "provider": "y42",
+  "sources": [
+    "y42-manifest-api-openapi.yml",
+    "y42-orchestration-api-openapi.yml",
+    "y42-runs-api-openapi.yml",
+    "y42-spaces-api-openapi.yml"
+  ],
+  "outputs": [
+    "y42-manifest-api-openapi.yml",
+    "y42-orchestration-api-openapi.yml",
+    "y42-runs-api-openapi.yml",
+    "y42-spaces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
