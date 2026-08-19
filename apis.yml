@@ -32,7 +32,7 @@ tags:
 - GitOps
 created: '2026-06-21'
 modified: '2026-06-21'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: y42:y42-webhooks
   name: Y42 Webhooks
