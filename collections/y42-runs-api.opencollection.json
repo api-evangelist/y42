@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Y42 Public Manifest Runs API",
+    "version": "4"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Runs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an orchestration run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/4/orchestrations/:org_slug/:space_slug/run",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space (environment)."
+              }
+            ]
+          },
+          "docs": "Retrieves information about a single orchestration run by id or conditions."
+        },
+        {
+          "info": {
+            "name": "List orchestration runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/4/orchestrations/:org_slug/:space_slug/runs",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space (environment)."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of orchestration runs for a space, filterable by conditions."
+        },
+        {
+          "info": {
+            "name": "Get latest jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/1/job-info-service/:org_slug/:space_slug/latest-jobs",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space (environment)."
+              }
+            ]
+          },
+          "docs": "Returns the latest job information for a space."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

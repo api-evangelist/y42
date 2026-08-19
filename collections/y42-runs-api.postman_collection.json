@@ -1,0 +1,365 @@
+{
+  "item": [
+    {
+      "id": "59317281-8415-447e-83fe-2f84285583f2",
+      "name": "Runs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c020adb-e01e-4209-b0a8-0f4fd44a0e7b",
+          "name": "Get an orchestration run",
+          "request": {
+            "name": "Get an orchestration run",
+            "description": {
+              "content": "Retrieves information about a single orchestration run by id or conditions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "4",
+                "orchestrations",
+                ":org_slug",
+                ":space_slug",
+                "run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org_slug",
+                  "description": "(Required) The slug of the organization (company)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "space_slug",
+                  "description": "(Required) The slug of the space (environment)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed779f9c-56f2-4aa1-968d-bd75a83549e8",
+              "name": "The requested orchestration run.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "4",
+                    "orchestrations",
+                    ":org_slug",
+                    ":space_slug",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org_slug",
+                      "description": "(Required) The slug of the organization (company)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "space_slug",
+                      "description": "(Required) The slug of the space (environment)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bbe23a5-b8e2-434b-bafb-9b9cf8484dec",
+          "name": "List orchestration runs",
+          "request": {
+            "name": "List orchestration runs",
+            "description": {
+              "content": "Retrieves a list of orchestration runs for a space, filterable by conditions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "4",
+                "orchestrations",
+                ":org_slug",
+                ":space_slug",
+                "runs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org_slug",
+                  "description": "(Required) The slug of the organization (company)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "space_slug",
+                  "description": "(Required) The slug of the space (environment)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "092558c5-817a-42c9-abfd-a205fd858f82",
+              "name": "A list of orchestration runs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "4",
+                    "orchestrations",
+                    ":org_slug",
+                    ":space_slug",
+                    "runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org_slug",
+                      "description": "(Required) The slug of the organization (company)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "space_slug",
+                      "description": "(Required) The slug of the space (environment)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c3a69da-7c00-47d0-ad89-d7d1aa50a035",
+          "name": "Get latest jobs",
+          "request": {
+            "name": "Get latest jobs",
+            "description": {
+              "content": "Returns the latest job information for a space.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "1",
+                "job-info-service",
+                ":org_slug",
+                ":space_slug",
+                "latest-jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org_slug",
+                  "description": "(Required) The slug of the organization (company)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "space_slug",
+                  "description": "(Required) The slug of the space (environment)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1a78384-f660-47f5-af3b-15194a874b32",
+              "name": "The latest jobs for the space.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1",
+                    "job-info-service",
+                    ":org_slug",
+                    ":space_slug",
+                    "latest-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org_slug",
+                      "description": "(Required) The slug of the organization (company)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "space_slug",
+                      "description": "(Required) The slug of the space (environment)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.y42.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0d1478b3-e8a9-48a6-b25f-3f1dd879cabb",
+    "name": "Y42 Public Manifest Runs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Y42 public REST API for the Y42 managed DataOps platform. It lets you programmatically manage spaces (Y42 environments) and their data-warehouse credentials, trigger and retrieve orchestration runs by command or by asset, retrieve the dbt manifest for a space, and read the latest job information. Paths below reflect endpoints documented in the Y42 public API reference (https://y42-public-api.readme.io/). Request and response schemas are not fully published in the public reference and are therefore omitted here rather than fabricated; consult the live reference for body shapes.\n\nContact Support:\n Name: Y42 Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Y42 Public Manifest API",
+    "version": "4"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Manifest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get dbt manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/1/dbt/:org_slug/:space_slug/manifest",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space (environment)."
+              }
+            ]
+          },
+          "docs": "Retrieves the dbt manifest content for a space, exposing the assets, models, sources, and lineage of the project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

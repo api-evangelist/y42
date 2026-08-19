@@ -1,0 +1,147 @@
+{
+  "item": [
+    {
+      "id": "71e6da85-3407-47c0-b0c1-6ef79b26d1c9",
+      "name": "Orchestration",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b5391c75-2ad1-4072-912e-2ce37d5df4f0",
+          "name": "Trigger an orchestration run",
+          "request": {
+            "name": "Trigger an orchestration run",
+            "description": {
+              "content": "Triggers an orchestration run for a space, by command or by asset, starting execution of the space's data pipeline.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "4",
+                "orchestrations",
+                ":org_slug",
+                ":space_slug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org_slug",
+                  "description": "(Required) The slug of the organization (company)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "space_slug",
+                  "description": "(Required) The slug of the space (environment)."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e8c07bb-67a3-4b6d-8a22-1e6625408ddd",
+              "name": "The triggered orchestration run.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "4",
+                    "orchestrations",
+                    ":org_slug",
+                    ":space_slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org_slug",
+                      "description": "(Required) The slug of the organization (company)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "space_slug",
+                      "description": "(Required) The slug of the space (environment)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.y42.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7186796f-f6d5-49b9-bf0a-8f348df5be99",
+    "name": "Y42 Public Manifest Orchestration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Y42 public REST API for the Y42 managed DataOps platform. It lets you programmatically manage spaces (Y42 environments) and their data-warehouse credentials, trigger and retrieve orchestration runs by command or by asset, retrieve the dbt manifest for a space, and read the latest job information. Paths below reflect endpoints documented in the Y42 public API reference (https://y42-public-api.readme.io/). Request and response schemas are not fully published in the public reference and are therefore omitted here rather than fabricated; consult the live reference for body shapes.\n\nContact Support:\n Name: Y42 Support",
+      "type": "text/plain"
+    }
+  }
+}

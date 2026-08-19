@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Y42 Public Manifest Orchestration API",
+    "version": "4"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orchestration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Trigger an orchestration run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.y42.dev/api/4/orchestrations/:org_slug/:space_slug",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space (environment)."
+              }
+            ]
+          },
+          "docs": "Triggers an orchestration run for a space, by command or by asset, starting execution of the space's data pipeline."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

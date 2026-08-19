@@ -1,0 +1,162 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Y42 Public Manifest Spaces API",
+    "version": "4"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Spaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List spaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/1/github-backend/:org_slug/",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              }
+            ]
+          },
+          "docs": "Returns a list of all accessible spaces in an organization (company)."
+        },
+        {
+          "info": {
+            "name": "Create a space",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.y42.dev/api/1/github-backend/:org_slug/space",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              }
+            ]
+          },
+          "docs": "Creates a new space (environment) within the organization."
+        },
+        {
+          "info": {
+            "name": "Retrieve a space",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.y42.dev/api/1/github-backend/:org_slug/space/:slug",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ]
+          },
+          "docs": "Retrieves details for a single space by slug."
+        },
+        {
+          "info": {
+            "name": "Delete a space",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.y42.dev/api/1/github-backend/:org_slug/space/:slug",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ]
+          },
+          "docs": "Removes a space by slug."
+        },
+        {
+          "info": {
+            "name": "Update space credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.y42.dev/api/1/github-backend/:org_slug/space/:slug/credentials",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space."
+              }
+            ]
+          },
+          "docs": "Updates the data-warehouse credentials/connection (e.g. BigQuery, Snowflake, GCS, S3) associated with a space."
+        },
+        {
+          "info": {
+            "name": "Create a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.y42.dev/api/1/credential/:org_slug/:space_slug/connections",
+            "params": [
+              {
+                "name": "org_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the organization (company)."
+              },
+              {
+                "name": "space_slug",
+                "value": "",
+                "type": "path",
+                "description": "The slug of the space (environment)."
+              }
+            ]
+          },
+          "docs": "Creates an integration/source connection credential for a space."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
