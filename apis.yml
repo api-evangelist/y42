@@ -8,6 +8,18 @@ description: Y42 is a managed DataOps platform ("Gitful data ops") that runs pro
   Git backend. Most workflows are driven through the Y42 web app and Git, but Y42
   also exposes a documented public REST API and webhooks for programmatically managing
   spaces, triggering orchestration runs, and retrieving run and manifest information.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
