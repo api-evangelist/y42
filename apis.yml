@@ -81,7 +81,7 @@ apis:
   humanURL: https://y42-public-api.readme.io/
   baseURL: https://api.y42.dev
   tags:
-  - Manifests
+  - Manifest
   tags_raw:
   - Manifest
   properties:
