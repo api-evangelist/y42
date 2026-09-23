@@ -1,10 +1,7 @@
 {
   "provider": "y42",
   "sources": [
-    "y42-manifest-api-openapi.yml",
-    "y42-orchestration-api-openapi.yml",
-    "y42-runs-api-openapi.yml",
-    "y42-spaces-api-openapi.yml"
+    "_original/y42-openapi.yml"
   ],
   "outputs": [
     "y42-manifest-api-openapi.yml",
@@ -15,6 +12,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "y42-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "y42-openapi.yml: declared missing tag: Manifest",
+    "y42-openapi.yml: declared missing tag: Orchestration",
+    "y42-openapi.yml: declared missing tag: Runs",
+    "y42-openapi.yml: declared missing tag: Spaces",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "y42-manifest-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "y42-orchestration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "y42-runs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "y42-spaces-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

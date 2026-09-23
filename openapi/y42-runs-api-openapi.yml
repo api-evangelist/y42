@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Y42 Public Manifest Runs API
-  description: The Y42 public REST API for the Y42 managed DataOps platform. It lets you programmatically manage spaces (Y42 environments) and their data-warehouse credentials, trigger and retrieve orchestration runs by command or by asset, retrieve the dbt manifest for a space, and read the latest job information. Paths below reflect endpoints documented in the Y42 public API reference (https://y42-public-api.readme.io/). Request and response schemas are not fully published in the public reference and are therefore omitted here rather than fabricated; consult the live reference for body shapes.
+  title: Y42 Public Runs API
+  description: The Y42 public REST API for the Y42 managed DataOps platform.
   termsOfService: https://www.y42.com/legal/terms-of-service
   contact:
     name: Y42 Support
