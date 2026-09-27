@@ -126,9 +126,11 @@ apis:
   humanURL: https://y42-public-api.readme.io/
   baseURL: https://api.y42.dev
   tags:
+  - Spaces
   - Space
   tags_raw:
   - Spaces
+  - Space
   properties:
   - type: OpenAPI
     url: openapi/y42-spaces-api-openapi.yml
