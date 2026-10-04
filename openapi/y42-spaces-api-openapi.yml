@@ -92,11 +92,11 @@ paths:
           description: The created connection.
 components:
   parameters:
-    OrgSlug:
-      name: org_slug
+    SpaceSlug:
+      name: space_slug
       in: path
       required: true
-      description: The slug of the organization (company).
+      description: The slug of the space (environment).
       schema:
         type: string
     Slug:
@@ -106,11 +106,11 @@ components:
       description: The slug of the space.
       schema:
         type: string
-    SpaceSlug:
-      name: space_slug
+    OrgSlug:
+      name: org_slug
       in: path
       required: true
-      description: The slug of the space (environment).
+      description: The slug of the organization (company).
       schema:
         type: string
   securitySchemes:

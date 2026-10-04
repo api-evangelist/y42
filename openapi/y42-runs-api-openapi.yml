@@ -56,18 +56,18 @@ paths:
           description: The latest jobs for the space.
 components:
   parameters:
-    OrgSlug:
-      name: org_slug
-      in: path
-      required: true
-      description: The slug of the organization (company).
-      schema:
-        type: string
     SpaceSlug:
       name: space_slug
       in: path
       required: true
       description: The slug of the space (environment).
+      schema:
+        type: string
+    OrgSlug:
+      name: org_slug
+      in: path
+      required: true
+      description: The slug of the organization (company).
       schema:
         type: string
   securitySchemes:
