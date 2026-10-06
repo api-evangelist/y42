@@ -52,7 +52,7 @@ tags_raw:
 - BigQuery
 - GitOps
 created: '2026-06-21'
-modified: '2026-06-21'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: y42:y42-webhooks
@@ -139,6 +139,8 @@ apis:
   - type: APIReference
     url: https://y42-public-api.readme.io/
 common:
+- url: https://www.y42.com/blog
+  type: Blog
 - type: AgenticAccess
   url: agentic-access/y42-agentic-access.yml
 - type: VulnerabilityDisclosure
