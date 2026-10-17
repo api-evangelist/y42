@@ -92,18 +92,18 @@ paths:
           description: The created connection.
 components:
   parameters:
-    SpaceSlug:
-      name: space_slug
-      in: path
-      required: true
-      description: The slug of the space (environment).
-      schema:
-        type: string
     Slug:
       name: slug
       in: path
       required: true
       description: The slug of the space.
+      schema:
+        type: string
+    SpaceSlug:
+      name: space_slug
+      in: path
+      required: true
+      description: The slug of the space (environment).
       schema:
         type: string
     OrgSlug:
