@@ -1,4 +1,4 @@
-# Y42 (y42)
+# Y42
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,136 +66,123 @@
 
 Y42 is a managed DataOps platform ("Gitful data ops") that runs production-ready data pipelines on top of Snowflake and BigQuery, combining managed Airbyte ingestion, managed dbt Core for SQL models, a DAG-based orchestration scheduler, and a managed Git backend. Most workflows are driven through the Y42 web app and Git, but Y42 also exposes a documented public REST API and webhooks for programmatically managing spaces, triggering orchestration runs, and retrieving run and manifest information.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/y42/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/y42/refs/heads/main/apis.yml)
+**Areas:** DataOps · Data Pipeline · Orchestration · dbt · Snowflake · BigQuery · GitOps
 
-## Tags
+## Y42 on APIs.io
 
-- DataOps
-- Data Pipelines
-- Orchestration
-- dbt
-- Snowflake
-- BigQuery
-- GitOps
+Everything profiled for Y42 is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/y42/](https://apis.io/providers/y42/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (5)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [Y42 Webhooks](https://apis.io/apis/y42/y42-webhooks/) — Y42 documents webhook-based triggers as part of its fully programmable pipelines (alongside the API and CLI), allowing external events to trigger…
+- [Y42 Manifest API](https://apis.io/apis/y42/y42-manifest-api/) — The Manifest API from Y42 — 1 operation(s) for manifest.
+- [Y42 Orchestration API](https://apis.io/apis/y42/y42-orchestration-api/) — The Orchestration API from Y42 — 1 operation(s) for orchestration.
+- [Y42 Runs API](https://apis.io/apis/y42/y42-runs-api/) — The Runs API from Y42 — 3 operation(s) for runs.
+- [Y42 Spaces API](https://apis.io/apis/y42/y42-spaces-api/) — The Spaces API from Y42 — 5 operation(s) for spaces.
 
-## APIs
+### Published properties
 
-### Y42 Spaces API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Programmatically list, create, retrieve, and delete spaces (Y42 environments) within an organization, manage credentials, and configure the underlying data warehouse connection (BigQuery, Snowflake, GCS, S3) via the Git backend endpoints.
+#### Agentic access (1)
 
-- **Human URL:** [https://y42-public-api.readme.io/](https://y42-public-api.readme.io/)
-- **Base URL:** `https://api.y42.dev`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Y42 Agentic Access](https://apis.io/agentic-access/y42/y42-agentic-access/)
 
-- Spaces
-- Environments
-- Provisioning
+#### Collections (5)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.y42.com/reference/api_overview)
-- [API Reference](https://y42-public-api.readme.io/)
-- [OpenAPI](openapi/y42-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/y42.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/y42.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Y42 Public API](https://apis.io/collections/y42/open-y42/)
+- [Y42 Public Manifest API](https://apis.io/collections/y42/open-y42-manifest-api/)
+- [Y42 Public Manifest Orchestration API](https://apis.io/collections/y42/open-y42-orchestration-api/)
+- [Y42 Public Manifest Runs API](https://apis.io/collections/y42/open-y42-runs-api/)
+- [Y42 Public Manifest Spaces API](https://apis.io/collections/y42/open-y42-spaces-api/)
 
-### Y42 Orchestration API
+#### Security (3)
 
-Trigger orchestration runs for a space by command or by asset, and retrieve information about runs by id or by conditions, enabling external schedulers and CI/CD systems to drive Y42 data pipelines.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://y42-public-api.readme.io/](https://y42-public-api.readme.io/)
-- **Base URL:** `https://api.y42.dev`
+- [Y42 Authentication](https://apis.io/security/y42/y42-authentication/)
+- [Y42 Domain Security](https://apis.io/security/y42/y42-domain-security/)
+- [Y42 Vulnerability Disclosure](https://apis.io/security/y42/y42-vulnerability-disclosure/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Orchestration
-- Pipelines
-- Scheduling
+Published plans, tiers and prices.
 
-#### Properties
+- [Y42 Plans Pricing](https://apis.io/plans/y42/y42-plans-pricing/)
 
-- [Documentation](https://docs.y42.com/reference/api_overview)
-- [API Reference](https://y42-public-api.readme.io/)
-- [OpenAPI](openapi/y42-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/y42.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/y42.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Y42 Runs API
+Published request limits.
 
-Retrieve orchestration run details and the latest job information for a space, supporting monitoring, alerting, and observability over pipeline executions.
+- [Y42 Rate Limits](https://apis.io/rate-limits/y42/y42-rate-limits/)
 
-- **Human URL:** [https://y42-public-api.readme.io/](https://y42-public-api.readme.io/)
-- **Base URL:** `https://api.y42.dev`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Runs
-- Jobs
-- Monitoring
+- [Y42 Finops](https://apis.io/finops/y42/y42-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.y42.com/reference/api_overview)
-- [API Reference](https://y42-public-api.readme.io/)
-- [OpenAPI](openapi/y42-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/y42.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/y42.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Y42 Manifest API
-
-Retrieve the dbt manifest content for a space, exposing the data assets, models, sources, and lineage that make up a Y42 project for downstream tooling.
-
-- **Human URL:** [https://y42-public-api.readme.io/](https://y42-public-api.readme.io/)
-- **Base URL:** `https://api.y42.dev`
-
-#### Tags
-
-- Manifest
-- dbt
-- Assets
-
-#### Properties
-
-- [Documentation](https://docs.y42.com/reference/api_overview)
-- [API Reference](https://y42-public-api.readme.io/)
-- [OpenAPI](openapi/y42-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/y42.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/y42.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Y42 Webhooks
-
-Y42 documents webhook-based triggers as part of its fully programmable pipelines (alongside the API and CLI), allowing external events to trigger orchestration. Specific webhook payloads and registration endpoints are not fully enumerated in the public API reference and are documented here as available but not reconciled.
-
-- **Human URL:** [https://docs.y42.com/docs/welcome](https://docs.y42.com/docs/welcome)
-- **Base URL:** `https://api.y42.dev`
-
-#### Tags
-
-- Webhooks
-- Events
-- Triggers
-
-#### Properties
-
-- [Documentation](https://docs.y42.com/reference/api_overview)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/y42)
 - [Website](https://www.y42.com)
 - [Documentation](https://docs.y42.com)
-- [Plans](plans/y42-plans-pricing.yml)
-- [Rate Limits](rate-limits/y42-rate-limits.yml)
-- [Fin Ops](finops/y42-finops.yml)
+- [Blog](https://www.y42.com/blog)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 24.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 47.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 22.6 |
+| Access clarity | 5.3 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 17.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/y42/](https://apis.io/providers/y42/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Y42: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/y42/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
